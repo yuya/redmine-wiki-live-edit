@@ -17,7 +17,7 @@ do (document = this.document, xhr = new XMLHttpRequest()) ->
       @origValues  = do (p = @form.getElementsByTagName "p") ->
         target  = p[p.length - 1].getElementsByTagName("a")[0]
         params  = target.getAttribute "onclick"
-        regex   = /^new\s\w+\.\w+\(\'\w+\',\s\'([\w\%\=\/]+)\',\s.+encodeURIComponent\(\'(.+)\'\)/g
+        regex   = /\(\'\w+\',\s\'(.+\/preview)\',\s.+encodeURIComponent\(\'(.+)\'\)/g
         excuted = regex.exec params
 
         return {
@@ -49,6 +49,7 @@ do (document = this.document, xhr = new XMLHttpRequest()) ->
 
     observeKeyEvent: ->
       @editor.addEventListener "keyup", =>
+        console.log "@@@ keyuped"
         clearTimeout @keyTimerId
         @keyTimerId = setTimeout =>
           @updatePreview()

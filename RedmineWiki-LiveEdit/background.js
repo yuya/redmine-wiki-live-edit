@@ -1,1 +1,15 @@
-var checkForValidUrl;checkForValidUrl=function(a,b,c){return/redmine/.test(c.url)&&/\/edit$/.test(c.url)?(chrome.pageAction.show(a),chrome.tabs.executeScript(null,{file:"content_script.js"})):void 0},chrome.tabs.onUpdated.addListener(checkForValidUrl);
+var checkForValidUrl, isFirst;
+
+isFirst = true;
+
+checkForValidUrl = function(tabId, changeInfo, tab) {
+  if (/redmine/.test(tab.url) && /\/edit$/.test(tab.url) && isFirst) {
+    chrome.pageAction.show(tabId);
+    chrome.tabs.executeScript(null, {
+      file: "content_script.js"
+    });
+    return isFirst = false;
+  }
+};
+
+chrome.tabs.onUpdated.addListener(checkForValidUrl);
