@@ -49,7 +49,6 @@ do (document = this.document, xhr = new XMLHttpRequest()) ->
 
     observeKeyEvent: ->
       @editor.addEventListener "keyup", =>
-        console.log "@@@ keyuped"
         clearTimeout @keyTimerId
         @keyTimerId = setTimeout =>
           @updatePreview()
