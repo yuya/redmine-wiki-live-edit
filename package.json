@@ -1,0 +1,33 @@
+{
+  "name": "RedmineWiki-LiveEdit",
+  "title": "Redmine Wiki LiveEdit",
+  "version": "1.0.0",
+  "description": "Chrome extension to add live editing features in Redmine wiki",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yhmt/redmine-wiki-live-preview.git"
+  },
+  "keywords": [
+    "redmine",
+    "wiki",
+    "chrome",
+    "extension"
+  ],
+  "author": "Yuya Hashimoto",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "e8fd4fd2f6fc5e35e6124f1583be0d75ac909293",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "matchdep": "~0.1.2",
+    "grunt-exec": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
+}
