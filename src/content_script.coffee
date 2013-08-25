@@ -1,4 +1,4 @@
-do (window = this, document = this.document, xhr = new XMLHttpRequest()) ->
+do (document = this.document, xhr = new XMLHttpRequest()) ->
   styleSheet = document.createElement "style"
   inlineCSS  = ".jstEditor { overflow: hidden; }
 #content_text, #preview { width: 49.5%; max-width: 50%; }
@@ -7,7 +7,7 @@ do (window = this, document = this.document, xhr = new XMLHttpRequest()) ->
 #preview fieldset { margin-top: 0; }
 #preview legend { display: none; }"
 
-  class LivePreview
+  class LiveEdit
     constructor: ->
       @form        = document.getElementById "wiki_form"
       @editor      = document.getElementById "content_text"
@@ -66,7 +66,7 @@ do (window = this, document = this.document, xhr = new XMLHttpRequest()) ->
       loader   = document.getElementById "ajax-indicator"
       callback = =>
         @editor.style.minHeight = "#{@preview.offsetHeight}px"
-        loader.style.display   = "none"
+        loader.style.display    = "none"
 
       do (textContent = @serializer @editor) =>
         xhr.onreadystatechange = =>
@@ -80,4 +80,4 @@ do (window = this, document = this.document, xhr = new XMLHttpRequest()) ->
         xhr.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
         xhr.send "#{@baseParams}&#{textContent}"
 
-  livePreview = new LivePreview()
+  liveEdit = new LiveEdit()

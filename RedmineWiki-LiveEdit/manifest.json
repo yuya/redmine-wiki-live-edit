@@ -1,0 +1,22 @@
+{
+  "name": "Redmine Wiki LiveEdit",
+  "description": "This extension add live editing features in Redmine wiki",
+  "version": "1.0.0",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": "icon/icon-19.png",
+    "default_title": "Enable redmine wiki live edit"
+  },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "icons": {
+    "19": "icon/icon-19.png",
+    "48": "icon/icon-48.png",
+    "128": "icon/icon-128.png"
+  },
+  "manifest_version": 2
+}
