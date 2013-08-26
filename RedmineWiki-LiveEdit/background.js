@@ -1,1 +1,1 @@
-var checkForValidUrl,isFirst;isFirst=null,checkForValidUrl=function(a,b,c){return isFirst=!0,/redmine/.test(c.url)&&/\/edit$/.test(c.url)&&isFirst?(chrome.pageAction.show(a),chrome.tabs.executeScript(null,{file:"content_script.js"}),isFirst=!1):void 0},chrome.tabs.onSelectionChanged.addListener(function(){return isFirst=!0}),window.onload=function(){return isFirst=!0,chrome.tabs.onUpdated.addListener(checkForValidUrl)};
+var onRequest;onRequest=function(a,b,c){return chrome.pageAction.show(b.tab.id),c({})},chrome.extension.onRequest.addListener(onRequest);

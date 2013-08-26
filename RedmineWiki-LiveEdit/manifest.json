@@ -9,6 +9,12 @@
     "default_icon": "icon/icon-19.png",
     "default_title": "Enable live editing features in redmine wiki"
   },
+  "content_scripts": [{
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end",
+      "all_frames": false
+  }],
   "permissions": [
     "tabs", "http://*/*", "https://*/*"
   ],
