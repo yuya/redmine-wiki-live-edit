@@ -58,3 +58,4 @@ module.exports = (grunt) ->
 
   grunt.registerTask "default", "watch:prod"
   grunt.registerTask "compile", ["coffee", "jshint", "uglify", "exec:compress", "exec:purr"]
+  grunt.registerTask "dev", ["coffee", "jshint", "exec:purr"]
