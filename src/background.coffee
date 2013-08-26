@@ -1,7 +1,7 @@
 isFirst = null
 
 checkForValidUrl = (tabId, changeInfo, tab) ->
-  alert isFirst
+  isFirst = true
   if /redmine/.test(tab.url) && /\/edit$/.test(tab.url) && isFirst
     chrome.pageAction.show tabId
     chrome.tabs.executeScript null,
