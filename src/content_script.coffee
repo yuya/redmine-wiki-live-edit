@@ -1,6 +1,6 @@
 url = location.href
 
-if /redmine/.test(url) && /\/edit$/.test(url)
+if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
   # post message to background
   chrome.extension.sendRequest {}, (response) ->
 
