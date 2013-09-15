@@ -1,7 +1,7 @@
 {
   "name": "Redmine Wiki LiveEdit",
   "description": "This extension add live editing features in Redmine wiki",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "background": {
     "scripts": ["background.js"]
   },
