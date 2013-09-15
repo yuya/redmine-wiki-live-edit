@@ -20,16 +20,29 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
         @origPreview = document.getElementById "preview"
         @preview     = @origPreview.cloneNode()
         @keyTimerId  = null
-        @origValues  = do (p = @form.getElementsByTagName "p") ->
+        @origValues  = do (p = @form.getElementsByTagName "p") =>
           target  = p[p.length - 1].getElementsByTagName("a")[0]
           params  = target.getAttribute "onclick"
-          regex   = /\(\'\w+\',\s\'(.+\/preview)\',\s.+encodeURIComponent\(\'(.+)\'\)/g
-          excuted = regex.exec params
 
-          return {
-            url   : excuted[1]
-            token : encodeURIComponent excuted[2]
-          }
+          # ~ Redmine 2.0
+          if /^new\sajax\.updater/i.test params
+            regex   = /\(\'\w+\',\s\'(.+\/preview)\',\s.+encodeURIComponent\(\'(.+)\'\)/g
+            excuted = regex.exec params
+
+            return {
+              url   : excuted[1]
+              token : encodeURIComponent excuted[2]
+            }
+          # Redmine 2.1 ~
+          else
+            regex   = /\w+\(\"(.+\/preview)\"\,\s/g
+            excuted = regex.exec params
+
+            return {
+              url   : excuted[1]
+              token : @form.authenticity_token["value"]
+            }
+
         @baseParams = do (i = 0) =>
           input  = @form.getElementsByTagName "input"
           params = []

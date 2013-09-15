@@ -1,7 +1,7 @@
 {
   "name": "RedmineWiki-LiveEdit",
   "title": "Redmine Wiki LiveEdit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Chrome extension to add live editing features in Redmine wiki",
   "main": "index.js",
   "scripts": {
@@ -31,3 +31,4 @@
     "grunt-contrib-uglify": "~0.2.2"
   }
 }
+
