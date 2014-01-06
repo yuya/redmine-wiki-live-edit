@@ -8,7 +8,7 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
     styleSheet = document.createElement "style"
     inlineCSS  = ".jstEditor { overflow: hidden; }
   #content_text, #preview { width: 49.5%; max-width: 50%; }
-  #content_text { box-sizing: border-box; float: left; }
+  #content_text { box-sizing: border-box; position: relative; float: left; }
   #preview { float: right; }
   #preview fieldset { margin-top: 0; }
   #preview legend { display: none; }"
