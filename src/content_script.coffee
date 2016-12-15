@@ -58,7 +58,7 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
         @observeKeyEvent()
 
       initElement: ->
-        @editor.parentNode.appendChild @preview
+        @editor.parentNode.insertBefore @preview, @editor.nextSibling
         @origPreview.parentNode.removeChild @origPreview
 
         styleSheet.innerText = inlineCSS
@@ -101,3 +101,4 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
           xhr.send "#{@baseParams}&#{textContent}"
 
     liveEdit = new LiveEdit()
+
