@@ -58,7 +58,7 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
         @observeKeyEvent()
 
       initElement: ->
-        @editor.parentNode.appendChild @preview
+        @editor.parentNode.insertBefore @preview, @editor.nextSibling
         @origPreview.parentNode.removeChild @origPreview
 
         styleSheet.innerText = inlineCSS
@@ -97,6 +97,8 @@ if /redmine/.test(url) and (/\/edit$/.test(url) or /\/edit\?.+$/.test(url))
 
           xhr.open "post", @origValues.url, true
           xhr.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+          xhr.setRequestHeader "X-CSRF-Token", @origValues.token
           xhr.send "#{@baseParams}&#{textContent}"
 
     liveEdit = new LiveEdit()
+
